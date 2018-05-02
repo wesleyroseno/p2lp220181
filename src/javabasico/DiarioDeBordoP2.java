@@ -9,12 +9,16 @@ import java.util.Scanner;
  *
  */
 public class DiarioDeBordoP2 {
-
+	private static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
-		final int AULAS = 30;
+		if(args.length > 1){
+			System.out.println("Uso incorreto do sistema!");
+			System.exit(1);
+		}
+		final int AULAS = Integer.parseInt(args[0]);
 		String[] datas = new String[AULAS];
 		String[] textos = new String[AULAS];
-		Scanner sc = new Scanner(System.in);
+		
 		final String MENU = "1- adicionar anotacao;\n"+
 							"2- pesquisar i-esima anotacao;\n"+
 							"3- listar anotacoes;\n"+
@@ -28,13 +32,13 @@ public class DiarioDeBordoP2 {
 		int qtdEntradas = 0;
 		//manipular diario
 		do{
-			op = leInt(MENU, sc);
+			op = leInt(MENU);
 			switch(op){
 			case ANOTAR:
-				anotar(textos, datas, qtdEntradas, sc);
+				qtdEntradas = anotar(textos, datas, qtdEntradas);
 				break;
 			case PESQUISAR:
-				int i = leInt("Qual anotacao quer ver: ", sc);
+				int i = leInt("Qual anotacao quer ver: ");
 				System.out.println(datas[i] + "-" + " " + textos[i]);
 				break;
 			case LISTAR:
@@ -48,20 +52,20 @@ public class DiarioDeBordoP2 {
 				System.out.println("Opcao invalida!");
 			}
 		}while(qtdEntradas != textos.length && op != SAIR);
-		sc.close();	
 	}//main
 	
-	private static void anotar(String[] textos, String[] datas, int qtdEntradas, Scanner sc) {
+	private static int anotar(String[] textos, String[] datas, int qtdEntradas) {
 		System.out.println("Data: ");
 		datas[qtdEntradas] = sc.nextLine();
 		System.out.println("Texto: ");
 		textos[qtdEntradas++] = sc.nextLine();
+		return qtdEntradas;
 	}
 
-	private static int leInt(String msg, Scanner input){
+	private static int leInt(String msg){
 		System.out.println(msg);
-		int op = input.nextInt();
-		input.nextLine();
+		int op = sc.nextInt();
+		sc.nextLine();
 		return op;
 	}
 }
