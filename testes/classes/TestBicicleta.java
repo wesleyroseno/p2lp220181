@@ -47,7 +47,7 @@ public class TestBicicleta {
 
 	@Test
 	public void testGeral(){
-		//b1
+		//bicicleta1
 		Bicicleta bicicleta1 = new Bicicleta(10, "caloi");
 		assertEquals(10, bicicleta1.getVelocidadeMaxima(), 0.000001);
 		assertEquals("caloi", bicicleta1.getModelo());
@@ -87,7 +87,7 @@ public class TestBicicleta {
 		//toString
 		assertEquals("Super bike caloi", bicicleta1.toString());
 		
-		//b2
+		//bicicleta2
 		Assento a = new Assento(2, "gel"); 
 		Bicicleta bicicleta2 = new Bicicleta(10, "caloi", a);
 		String s = "Descricao: gel Tamanho: 2";

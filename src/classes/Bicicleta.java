@@ -66,5 +66,20 @@ public class Bicicleta{
 	public boolean temConforto(double larguraQuadril){
 		return meuAssento.temConforto(larguraQuadril);
 	}
+	
+	@Override
+	public boolean equals(Object outra) {
+		if(outra instanceof Bicicleta){
+			Bicicleta b2 = (Bicicleta)outra;
+			System.out.println("equals de bicicleta");
+			return getVelocidadeMaxima() == b2.getVelocidadeMaxima();
+		}
+		return false;
+		
+	}
+	//queremos usar o método de igualdade padrão de java = equals!
+	public boolean igualdade(Bicicleta outra){
+		return getVelocidadeMaxima() == outra.getVelocidadeMaxima();
+	}
 
 }
