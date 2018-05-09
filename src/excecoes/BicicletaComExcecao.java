@@ -1,20 +1,23 @@
-package classes;
+package excecoes;
+
+import classes.Assento;
 
 /* 
- * Mais objetos
+ * Introduzindo exceções
  * 
  * Por: Lívia Sampaio Campos
  * Observacao: Esse codigo é uma prova de conceito,
  * portanto, pode estar incompleto ou com algumas 
  * simplificações.
  */
-public class Bicicleta{
-	private double velocidadeAtual;
+public class BicicletaComExcecao{
+	protected double velocidadeAtual;
 	private double velocidadeMaxima;
 	private String modelo;
-	private Assento meuAssento;
-	
-	public Bicicleta(double velocidadeMaxima, String modelo, Assento assento){
+	private Assento assento;
+
+	//marcar que o metodo lanca excecao, nesse caso, eh opcional
+	public BicicletaComExcecao(double velocidadeMaxima, String modelo, Assento assento) throws RuntimeException{
 		if(modelo == null){
 			throw new NullPointerException("Valor nulo invalido!");
 		}
@@ -23,18 +26,15 @@ public class Bicicleta{
 		}
 		this.velocidadeMaxima = velocidadeMaxima;
 		this.modelo = modelo;
-		meuAssento = assento;
+		this.assento = assento;
 	}
-	public Bicicleta(double velocidadeMaxima, String modelo) {
+	
+	public BicicletaComExcecao(double velocidadeMaxima, String modelo) throws RuntimeException{
 		this(velocidadeMaxima, modelo, null);
 	}
 	
 	public String getAssento(){
-		if(meuAssento != null){
-			return meuAssento.toString();
-		}else{
-			return "";
-		}
+		return assento.toString();
 	}
 
 	public double getVelocidadeMaxima(){
@@ -47,6 +47,11 @@ public class Bicicleta{
 
 	public String getModelo() {
 		return modelo;
+	}
+
+	public void setAssento(Assento novo){
+		assento = novo;
+
 	}
 
 	public void acelera() {
@@ -64,28 +69,23 @@ public class Bicicleta{
 	public String toString() {
 		return "Super bike " + getModelo();
 	}
-
-	public void setAssento(Assento novoAssento) {
-		meuAssento = novoAssento;
-	}
-	
-	public boolean temConforto(double larguraQuadril){
-		return meuAssento.temConforto(larguraQuadril);
-	}
 	
 	@Override
-	public boolean equals(Object outra) {
-		if(outra instanceof Bicicleta){
-			Bicicleta b2 = (Bicicleta)outra;
-			System.out.println("equals de bicicleta");
-			return getVelocidadeMaxima() == b2.getVelocidadeMaxima();
+	public boolean equals(Object b2){
+		if(!(b2 instanceof BicicletaComExcecao)){
+			return false;
 		}
-		return false;
-		
+		BicicletaComExcecao b3 = (BicicletaComExcecao) b2;
+		return this.getModelo().equals(b3.getModelo()) &&
+				this.getAssento().equals(b3.getAssento());
 	}
-	//queremos usar o método de igualdade padrão de java = equals!
-	public boolean igualdade(Bicicleta outra){
-		return getVelocidadeMaxima() == outra.getVelocidadeMaxima();
+	public static void main(String[] args) {
+		try{
+		
+			BicicletaComExcecao b = new BicicletaComExcecao(200, "xx");
+		}catch(RuntimeException e){
+			System.out.println(e.getMessage());
+		}
 	}
 
 }
