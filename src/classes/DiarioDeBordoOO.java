@@ -10,6 +10,8 @@ package classes;
  */
 import java.util.Scanner;
 
+import utils.LeituraDeDados;
+
 public class DiarioDeBordoOO {
 
 	public static void main(String[] args) {
