@@ -8,7 +8,7 @@ package heranca;
  * @author Lívia
  *
  */
-public abstract class PratoPersonalizado {
+public abstract class PratoPersonalizado implements Comparable<PratoPersonalizado>{
 	
 	private double precoBase;
 	private Personalizacao personalizacao;
@@ -65,6 +65,11 @@ public abstract class PratoPersonalizado {
 	
 	public abstract double areaTotal();
 	
+	@Override
+	public int compareTo(PratoPersonalizado p){
+		
+		return getPersonalizacao().compareTo(p.getPersonalizacao());
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

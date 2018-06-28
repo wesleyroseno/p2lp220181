@@ -1,5 +1,8 @@
 package heranca;
 import java.util.ArrayList;
+import java.util.Collections;
+
+import interfaceoo.ComparaPrecoBase;
 /**
  * Codigo desenvolvido para aulas de P2-computacao@ufcg
  * Usado como prova de conceito, podendo ser melhorado.
@@ -80,6 +83,19 @@ public class EstoquePratos {
 		return resultado;
 	}
 	
+	public String ordenar(){
+		ArrayList<PratoPersonalizado> copia = new ArrayList<>();
+		copia.addAll(estoqueDePratos);
+		Collections.sort(copia);
+		return copia.toString();
+	}
+	
+	public String ordenarEspecial(){
+		ArrayList<PratoPersonalizado> copia = new ArrayList<>();
+		copia.addAll(estoqueDePratos);
+		Collections.sort(copia, new ComparaPrecoBase());
+		return copia.toString();
+	}
 	
 
 }
