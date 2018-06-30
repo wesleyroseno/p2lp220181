@@ -2,6 +2,6 @@ package heranca;
 
 public enum Personalizacao {
 
-	FOTO, PINTURA, ESTAMPA;
+	FOTO, ESTAMPA, PINTURA;
 	
 }

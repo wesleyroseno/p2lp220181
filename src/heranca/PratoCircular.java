@@ -15,6 +15,11 @@ public class PratoCircular extends PratoPersonalizado{
 		this.raio = raio;
 	}
 	
+	public PratoCircular(double precoBase, Personalizacao personalizacao, String artista, double raio){
+		super(precoBase, personalizacao, artista);
+		this.raio = raio;
+	}
+	
 	@Override
 	public double areaTotal() {
 		return Math.PI * Math.pow(2, raio);

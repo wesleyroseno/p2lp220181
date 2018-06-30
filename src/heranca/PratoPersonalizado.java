@@ -12,10 +12,20 @@ public abstract class PratoPersonalizado implements Comparable<PratoPersonalizad
 	
 	private double precoBase;
 	private Personalizacao personalizacao;
+	private String artista;
 	
 	public PratoPersonalizado(double precoBase, Personalizacao personalizacao) {
+		this(precoBase, personalizacao, "Desconhecido");
+	}
+	
+	public PratoPersonalizado(double precoBase, Personalizacao personalizacao, String artista){
 		mudaPrecoBase(precoBase);
 		this.personalizacao = personalizacao;
+		this.artista = artista;
+	}
+	
+	public String getArtista(){
+		return artista;
 	}
 	
 	/*//no controller deveria ter um metodo desse tipo para fazer a conversao do string que vem da interface com o usuario para o enum
