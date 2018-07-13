@@ -1,7 +1,10 @@
 package excecoes;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import utils.LeituraDeDados;
 
 public class ExcecoesDeJava {
 
@@ -9,12 +12,25 @@ public class ExcecoesDeJava {
 		String nome = null;
 		//exemploNullPointerException(nome);
 		//exemploIndexOutOfBoundException();
-		exemploInputMismatchException();
+		//exemploInputMismatchException();
 		//exemplo2InputMismatchException();
 		//exemploInputMismatchException3();
-		
+		exemploExcecaoChecada("nomes.txt");
 	}
 	
+
+	private static void exemploExcecaoChecada(String nomeArquivo) {
+		
+		try {
+			String resultado = LeituraDeDados.leArquivoTexto(nomeArquivo);
+			System.out.println(resultado);
+		}catch(IOException e) {
+			System.err.println(e.getMessage());
+		}
+		
+	}
+
+
 	private static void exemplo2InputMismatchException() {
 		//outra forma de evitar a excecao InputMismatchException
 		Scanner sc = new Scanner(System.in);

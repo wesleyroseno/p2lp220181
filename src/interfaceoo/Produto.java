@@ -3,12 +3,15 @@ package interfaceoo;
 import java.util.ArrayList;
 import java.util.List;
 
+import excecoes.NomeInvalidoException;
+
 public class Produto {
 	
 	private final String VAZIO = "";
 	private String nome;
 	private double valor;
 	private List<Opiniao> opinioes;
+	private Avaliacao estrategiaAvaliacao;
 	
 	public Produto(String nome, double valor) {
 		checaNome(nome);
@@ -16,11 +19,12 @@ public class Produto {
 		this.nome = nome;
 		this.valor = valor;		
 		opinioes = new ArrayList<Opiniao>();
+		estrategiaAvaliacao = new AvaliacaoUltimo();
 	}
 	
 	private void checaNome(String nome){
 		if(nome.equals(VAZIO)){
-			throw new IllegalArgumentException("nome vazio invalido!");
+			throw new NomeInvalidoException("nome vazio invalido!");
 		}
 	}
 	
@@ -48,6 +52,14 @@ public class Produto {
 	public double getValor() { return valor; }
 	public void setValor(double valor) { checaValor(valor); this.valor = valor; }
 	
+	public double notaLegal() {
+		return estrategiaAvaliacao.notaLegal(opinioes);
+	}
+	
+	public void setEstrategiaAvaliacao(Avaliacao novo) {
+		estrategiaAvaliacao = novo;
+	}
+	
 	@Override
 	public String toString() { return "Nome: " + nome + "| Valor: " + valor; }
 	
@@ -66,6 +78,9 @@ public class Produto {
 		p.adicionaOpiniao(8, "grao quebradico");
 		System.out.println(p);
 		System.out.println(p.listaOpinioes());
+		System.out.println(p.notaLegal());
+		p.setEstrategiaAvaliacao(new AvaliacaoPorMedia());
+		System.out.println(p.notaLegal());
 	}
 
 }

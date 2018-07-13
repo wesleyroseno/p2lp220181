@@ -1,5 +1,8 @@
 package utils;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Scanner;
 /**
  * Codigo desenvolvido para aulas de P2-computacao@ufcg 2016.2
@@ -40,6 +43,26 @@ public class LeituraDeDados {
 			teclado.nextLine();
 		}while(valor < 0);
 		return valor;
+	}
+	
+	public static String leArquivoTexto(String nomeArquivo) throws IOException{
+		FileInputStream arquivo = null;
+		Scanner sc = null;
+		String retorno = "";
+		try{
+			arquivo = new FileInputStream(new File(nomeArquivo));
+			sc = new Scanner(arquivo);
+			
+			while(sc.hasNext()){
+				String linha = sc.nextLine();
+					retorno += linha + "\n";
+			}
+		}finally{
+			if (arquivo != null) arquivo.close();
+			if(sc != null) sc.close();
+		}
+		return retorno;
+		
 	}
 
 }
