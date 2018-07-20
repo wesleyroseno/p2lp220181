@@ -15,11 +15,11 @@ public class UsaArquivo {
 		try{
 			//copyBytes();
 			//copyBytes2();
-			escreveObjeto();
-			//leObjetos();
+			//escreveObjeto();
+			leObjetos();
 			//escreveArquivoTexto("livia.txt");
 			//leArquivoTexto("livia.txt");
-		}catch(IOException e){
+		}catch(ClassNotFoundException|IOException e){
 			System.out.println(e.getMessage());
 		}
 		

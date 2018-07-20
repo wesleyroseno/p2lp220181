@@ -1,4 +1,5 @@
 package heranca;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,8 +12,12 @@ import java.util.Comparator;
  *
  */
 
-public class EstoquePratos {
+public class EstoquePratos implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList<PratoPersonalizado> estoqueDePratos;
 	private Comparator<PratoPersonalizado> estrategiaDeComparacao;
 	
@@ -37,7 +42,7 @@ public class EstoquePratos {
 		return prato;
 	}
 	
-	public PratoPersonalizado temPratoComPersonalizacao(Personalizacao personalizacao) {
+	public PratoPersonalizado pegaPratoComPersonalizacao(Personalizacao personalizacao) {
 		for (int i = 0; i < estoqueDePratos.size(); i ++) {
 			if (estoqueDePratos.get(i).getPersonalizacao() == personalizacao){//chamada polimórfica
 				return estoqueDePratos.get(i);
@@ -46,7 +51,7 @@ public class EstoquePratos {
 		return null;
 	}
 	
-	public boolean pegaPratoComPersonalizacao(Personalizacao personalizacao) {
+	public boolean temPratoComPersonalizacao(Personalizacao personalizacao) {
 		for (int i = 0; i < estoqueDePratos.size(); i ++) {
 			if (estoqueDePratos.get(i).getPersonalizacao() == personalizacao){
 				return true;

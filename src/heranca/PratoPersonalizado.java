@@ -1,5 +1,7 @@
 package heranca;
 
+import java.io.Serializable;
+
 /**
  * Codigo desenvolvido para aulas de P2-computacao@ufcg
  * Usado como prova de conceito, podendo ser melhorado.
@@ -8,8 +10,12 @@ package heranca;
  * @author Lívia
  *
  */
-public abstract class PratoPersonalizado implements Comparable<PratoPersonalizado>{
+public abstract class PratoPersonalizado implements Comparable<PratoPersonalizado>, Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private double precoBase;
 	private Personalizacao personalizacao;
 	private String artista;
@@ -67,6 +73,9 @@ public abstract class PratoPersonalizado implements Comparable<PratoPersonalizad
 		this.personalizacao = personalizacao;
 	}
 	
+	public void setAutor(String artista) {
+		this.artista = artista;
+	}
 	//public abstract double calculaPrecoFinal();
 	
 	public double calculaPrecoFinal(){

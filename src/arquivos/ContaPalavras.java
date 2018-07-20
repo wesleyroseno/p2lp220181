@@ -6,7 +6,14 @@ import java.util.Scanner;
 import java.util.Set;
 
 import utils.LeituraDeDados;
-
+/**
+ * Codigo desenvolvido para aulas de P2-computacao@ufcg
+ * Usado como prova de conceito, podendo ser melhorado.
+ * Assuntos: Arquivos.
+ * 13/07/2018
+ * @author Lívia
+ *
+ */
 public class ContaPalavras {
 	public static void main(String[] args) {
 		String texto="";
