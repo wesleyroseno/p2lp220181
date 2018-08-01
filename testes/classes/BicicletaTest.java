@@ -102,7 +102,7 @@ public class BicicletaTest {
 		Assento novo = new Assento(22, "espuma");
 		assertEquals("", bicicleta1.getAssento());
 		bicicleta1.setAssento(novo);
-		String saida = "Descricao: espuma + Tamanho: 22";
+		String saida = "Descricao: espuma Tamanho: 22";
 		assertEquals(saida, bicicleta1.getAssento());
 	}
 
@@ -116,8 +116,8 @@ public class BicicletaTest {
 		Bicicleta bicicleta1 = new Bicicleta(11, "caloi");
 		Bicicleta bicicleta2 = new Bicicleta(11, "caloi");
 		assertEquals(bicicleta1, bicicleta2);
-		assertTrue(bicicleta1.equals("livia"));
 		assertTrue(bicicleta1.equals(bicicleta1));
+		assertTrue(bicicleta1.equals(bicicleta2));
 		assertTrue(bicicleta1.igualdade(bicicleta2));
 	}
 
