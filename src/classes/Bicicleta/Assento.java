@@ -1,4 +1,4 @@
-package classes;
+package classes.Bicicleta;
 
 public class Assento {
 

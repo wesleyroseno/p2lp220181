@@ -8,6 +8,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import classes.Bicicleta.Assento;
+import classes.Bicicleta.Bicicleta;
+
 public class BicicletaTest {
 
 	private Bicicleta bicicleta1;

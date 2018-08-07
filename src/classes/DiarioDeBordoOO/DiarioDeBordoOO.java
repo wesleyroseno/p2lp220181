@@ -1,4 +1,4 @@
-package classes;
+package classes.DiarioDeBordoOO;
 
 /* Comecando com objetos: como transformar esse codigo procedural
  * em um codigo Orientado a Objetos?

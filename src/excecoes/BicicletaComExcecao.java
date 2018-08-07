@@ -1,6 +1,6 @@
 package excecoes;
 
-import classes.Assento;
+import classes.Bicicleta.Assento;
 
 /* 
  * Introduzindo exceções

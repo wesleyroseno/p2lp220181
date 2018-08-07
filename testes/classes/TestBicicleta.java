@@ -3,6 +3,9 @@ package classes;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import classes.Bicicleta.Assento;
+import classes.Bicicleta.Bicicleta;
 /* 
  * Começando com Testes de Unidade usando JUnit.
  * Observe que o estilo pode melhorar. Ter modularização dos 

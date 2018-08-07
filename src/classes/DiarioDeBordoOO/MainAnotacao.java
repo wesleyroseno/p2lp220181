@@ -1,4 +1,4 @@
-package classes;
+package classes.DiarioDeBordoOO;
 
 import java.util.Scanner;
 

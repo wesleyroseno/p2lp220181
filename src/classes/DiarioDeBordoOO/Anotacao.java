@@ -1,4 +1,4 @@
-package classes;
+package classes.DiarioDeBordoOO;
 
 /* Comecando com objetos: nossa primeira classe. Esta sendo usada
  * em DiarioDeBordoOO.java
